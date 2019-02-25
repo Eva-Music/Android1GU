@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin_layout"
     android:orientation="vertical"
     tools:context=".MainActivity"
-
+    android:background="@drawable/sky"
     >
 
 
@@ -33,12 +32,47 @@
 
     </LinearLayout>
 
+    <CheckBox
+        android:id="@+id/checkbox_humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/humidity"
+        />
+
+    <CheckBox
+        android:id="@+id/checkbox_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/wind"
+        />
+
     <Button
         android:id="@+id/button_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/result" />
+
+
+    <Button
+        android:id="@+id/button_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_layout"
+        android:text="@string/increment"
+        />
+
+    <TextView
+        android:id="@+id/text_view_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_layout"
+        android:text="@string/quantity"
+        android:textSize="@dimen/main_text_size"
+        />
 
 
 </LinearLayout>

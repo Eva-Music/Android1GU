@@ -4,4 +4,10 @@
     <string name="weather">Погода в</string>
     <string name="city_name">напишите название города</string>
     <string name="result">узнать</string>
+    <string name="increment">инкремент</string>
+    <string name="quantity">количество</string>
+    <string name="pushed">Нажато</string>
+    <string name="times">раз</string>
+    <string name="humidity">Влажность воздуха</string>
+   <string name="wind">Скорость ветра</string>
 </resources>
