@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Погода</string>
+    <string name="app_name">Weather Application</string>
+    <string name="weather">Weather in</string>
+    <string name="city_name">write city name</string>
+    <string name="result">get it</string>
+    <string name="increment">increment</string>
+    <string name="quantity">количество</string>
+    <string name="pushed">Pushed</string>
+    <string name="times">times</string>
+    <string name="humidity">Air humidity</string>
+    <string name="wind">Wind speed</string>
 </resources>

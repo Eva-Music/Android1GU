@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="second_weather">Погода в городе</string>
+    <string name="back">назад</string>
+    <string name="previous">На предыдущей активити кнопка была нажата</string>
+    <string name="result_text">Вы узнали погоду в городе:</string>
+</resources>
