@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="PinkTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/clearPink</item>
+        <item name="colorPrimaryDark">@color/darkPink</item>
+        <item name="colorAccent">@color/purpleAccent</item>
+    </style>
+
+
 </resources>
