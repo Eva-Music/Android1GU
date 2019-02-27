@@ -23,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
     public static final String RESULT_COUNTER_TEXT = "text";
     public static final int REQUEST_CODE = 10;
     final ActivitySaver activitySaver = ActivitySaver.getInstance();
+    private EditText editText;
+    private Button buttonResult;
+    private Button incrementButton;
+    private CheckBox checkBoxHumidity;
+    private CheckBox checkBoxWind;
+    private TextView resultView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +51,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void downloadNextActivity() {
-        final EditText editText = findViewById(R.id.edit_city);
-        Button buttonResult = findViewById(R.id.button_result);
-        final CheckBox checkBoxHumidity = findViewById(R.id.checkbox_humidity);
-        final CheckBox checkBoxWind = findViewById(R.id.checkbox_wind);
+        editText = findViewById(R.id.edit_city);
+        buttonResult = findViewById(R.id.button_result);
+        checkBoxHumidity = findViewById(R.id.checkbox_humidity);
+        checkBoxWind = findViewById(R.id.checkbox_wind);
 
         buttonResult.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("DefaultLocale")
     public void setText() {
-        TextView resultView = findViewById(R.id.text_view_quantity);
+        resultView = findViewById(R.id.text_view_quantity);
         resultView.setText(String.format("%s %d %s", getResources().getString(pushed),
                 activitySaver.getCounter(), getResources().getString(times)));
 
     }
 
     public void incrementButtonJob() {
-        final Button incrementButton = findViewById(R.id.button_counter);
+        incrementButton = findViewById(R.id.button_counter);
         incrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

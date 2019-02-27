@@ -17,6 +17,12 @@ public class SecondActivity extends AppCompatActivity {
 
     final ActivitySaver activitySaver = ActivitySaver.getInstance();
 
+    private Button backButton;
+    private TextView secondView;
+    private TextView textResultCounter;
+    private ImageView humView;
+    private ImageView windView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +33,7 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     public void returnToPreviousActivityWithResult() {
-        Button backButton = findViewById(R.id.button_back);
+        backButton = findViewById(R.id.button_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,16 +48,16 @@ public class SecondActivity extends AppCompatActivity {
 
     @SuppressLint("DefaultLocale")
     public void unitUI() {
-        TextView secondView = findViewById(R.id.second_text_view);
+        secondView = findViewById(R.id.second_text_view);
         String city = activitySaver.getCity();
         secondView.append(" " + city);
 
-        TextView textResultCounter = findViewById(R.id.text_view_counter_result);
+        textResultCounter = findViewById(R.id.text_view_counter_result);
         textResultCounter.setText(String.format("%s %d %s", getResources().getString(previous),
                 activitySaver.getCounter(), getResources().getString(times)));
 
-        ImageView humView = findViewById(R.id.hum_picture);
-        ImageView windView = findViewById(R.id.wind_picture);
+        humView = findViewById(R.id.hum_picture);
+        windView = findViewById(R.id.wind_picture);
 
         setVisible(MainActivity.HUM, humView);
         setVisible(MainActivity.WIND, windView);
