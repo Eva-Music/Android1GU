@@ -1,7 +1,5 @@
 package com.example.android1gu;
 
-
-
 public final class ActivitySaver {
 
     private static ActivitySaver instance;

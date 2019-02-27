@@ -59,10 +59,12 @@ public class SecondActivity extends AppCompatActivity {
 
 
     public void setVisible(String tag, ImageView imageView) {
-        if (getIntent().getBooleanExtra(tag, false)) {
-            imageView.setVisibility(View.VISIBLE);
-        } else {
-            imageView.setVisibility(View.INVISIBLE);
+        if (getIntent() != null) {
+            if (getIntent().getBooleanExtra(tag, false)) {
+                imageView.setVisibility(View.VISIBLE);
+            } else {
+                imageView.setVisibility(View.INVISIBLE);
+            }
         }
     }
 
