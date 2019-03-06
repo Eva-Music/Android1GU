@@ -8,10 +8,9 @@ import android.util.Log;
 
 import com.example.weatherwithfragments.cityrepository.CityRepository;
 
-public class MainActivity extends AppCompatActivity implements CityNameFragment.OnListFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements CityNameFragment.OnListFragmentInteractionListener {
 
     public static final String SERIAL = "serial";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,44 +22,31 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
                 .beginTransaction()
                 .add(R.id.city_name_fragment, cityNameFragment)
                 .commit();
-
     }
 
     @Override
     public void onListFragmentInteraction(CityRepository.TheCity item) {
         Log.d("TAG", "onListFragmentInteraction: " + item);
+        WeatherFragment weatherFragment = new WeatherFragment();
+        CityNameFragment cityNameFragment = new CityNameFragment();
+        Bundle bundle = new Bundle();
+        FragmentManager fm = getSupportFragmentManager();
+        bundle.putSerializable(SERIAL, item);
+        weatherFragment.setArguments(bundle);
+
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            WeatherFragment weatherFragment = new WeatherFragment();
-            Bundle bundle = new Bundle();
-
-            FragmentManager fm = getSupportFragmentManager();
-
-            bundle.putSerializable(SERIAL, item);
-
-            weatherFragment.setArguments(bundle);
             fm.beginTransaction()
                     .replace(R.id.city_name_fragment, weatherFragment)
                     .addToBackStack("enter")
                     .commit();
-
-
         }
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            WeatherFragment weatherFragment = new WeatherFragment();
-            Bundle bundle = new Bundle();
-
-            FragmentManager fm = getSupportFragmentManager();
-
-            bundle.putSerializable(SERIAL, item);
-
-            weatherFragment.setArguments(bundle);
             fm.beginTransaction()
-                    .add(R.id.weather_fragment, weatherFragment)
+                    .replace(R.id.weather_fragment, weatherFragment)
+                    .replace(R.id.city_name_fragment, cityNameFragment)
                     .addToBackStack("enter")
                     .commit();
-
-
         }
     }
 }

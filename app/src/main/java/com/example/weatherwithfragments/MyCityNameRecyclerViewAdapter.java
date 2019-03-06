@@ -14,11 +14,6 @@ import com.example.weatherwithfragments.cityrepository.CityRepository.TheCity;
 import java.util.List;
 
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link TheCity} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNameRecyclerViewAdapter.ViewHolder> {
 
     private final List<TheCity> mValues;
@@ -44,23 +39,16 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
         holder.mContentView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener((View v) -> {
-                if (null != mListener) {
-//                    if(holder.checkWind.isChecked()) {
-//
-//                    }
-
-                    if (holder.checkWind.isChecked()) {
-                        holder.mItem.setWind(true);
+                    if (null != mListener) {
+                        if (holder.checkWind.isChecked()) {
+                            holder.mItem.setWind(true);
+                        }
+                        if (holder.checkHum.isChecked()) {
+                            holder.mItem.setHumid(true);
+                        }
+                        mListener.onListFragmentInteraction(holder.mItem);
                     }
-                    if (holder.checkHum.isChecked()) {
-                        holder.mItem.setHumid(true);
-                    }
-
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
                 }
-            }
         );
     }
 
@@ -70,10 +58,10 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-         final View mView;
-         final TextView mIdView;
-         final TextView mContentView;
-         TheCity mItem;
+        final View mView;
+        final TextView mIdView;
+        final TextView mContentView;
+        TheCity mItem;
         CheckBox checkHum;
         CheckBox checkWind;
 
@@ -87,10 +75,5 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
             checkWind = view.findViewById(R.id.checkbox_wind);
         }
 
-        @NonNull
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
     }
 }

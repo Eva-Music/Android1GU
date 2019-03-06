@@ -9,31 +9,17 @@ import java.util.List;
 import java.util.Map;
 
 
-/**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- * <p>
- * TODO: Replace all uses of this class before publishing your app.
- */
 public class CityRepository {
 
-    /**
-     * An array of sample (dummy) items.
-     */
     public static final List<TheCity> ITEMS = new ArrayList<>();
 
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
     private static final Map<String, TheCity> ITEM_MAP = new HashMap<>();
 
     static {
-        // Add some sample items.
-
-            addItem(createTheCity(ITEMS.size(), "Москва" ));
-            addItem(createTheCity(ITEMS.size(), "Адлер" ));
-        addItem(createTheCity(ITEMS.size(), "Южно-Курильск"));
-            addItem(createTheCity(ITEMS.size(), "Красноярск" ));
+        addItem(createTheCity(ITEMS.size(), "Moscow"));
+        addItem(createTheCity(ITEMS.size(), "Saint-Petersburg"));
+        addItem(createTheCity(ITEMS.size(), "Sochi"));
+        addItem(createTheCity(ITEMS.size(), "Samara"));
     }
 
     private static void addItem(TheCity item) {
