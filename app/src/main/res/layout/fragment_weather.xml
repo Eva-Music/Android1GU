@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".WeatherFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/second_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/second_weather"
+        android:textSize="16sp" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/thermometer"
+
+            />
+
+        <ImageView
+            android:id="@+id/hum_picture"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/drop" />
+
+        <ImageView
+            android:id="@+id/wind_picture"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:src="@drawable/wind" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+
+        android:src="@drawable/sun" />
+
+    <ImageView
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+
+        android:src="@drawable/moon" />
+
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/back" />
+
+
+    <TextView
+        android:id="@+id/text_view_counter_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

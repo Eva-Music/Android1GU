@@ -23,7 +23,6 @@ public class WeatherFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
     public WeatherFragment() {
         // Required empty public constructor
     }
@@ -61,5 +60,6 @@ public class WeatherFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_weather, container, false);
     }
+
 
 }

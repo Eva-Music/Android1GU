@@ -1,9 +1,12 @@
-package com.example.weatherwithfragments.dummy;
+package com.example.weatherwithfragments.cityrepository;
+
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -16,12 +19,12 @@ public class CityRepository {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<TheCity> ITEMS = new ArrayList<TheCity>();
+    public static final List<TheCity> ITEMS = new ArrayList<>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, TheCity> ITEM_MAP = new HashMap<String, TheCity>();
+    private static final Map<String, TheCity> ITEM_MAP = new HashMap<>();
 
     static {
         // Add some sample items.
@@ -45,12 +48,14 @@ public class CityRepository {
         public final String id;
         public final String content;
 
-        public TheCity(String id, String content) {
+
+        TheCity(String id, String content) {
             this.id = id;
             this.content = content;
 
         }
 
+        @NonNull
         @Override
         public String toString() {
             return "TheCity{" +

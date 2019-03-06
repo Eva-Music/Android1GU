@@ -1,10 +1,10 @@
 package com.example.weatherwithfragments;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.weatherwithfragments.dummy.CityRepository;
+import com.example.weatherwithfragments.cityrepository.CityRepository;
 
 public class MainActivity extends AppCompatActivity implements CityNameFragment.OnListFragmentInteractionListener{
 
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
         CityNameFragment cityNameFragment = new CityNameFragment();
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.frame_layout, cityNameFragment)
+                .add(R.id.city_name_fragment, cityNameFragment)
                 .commit();
 
     }

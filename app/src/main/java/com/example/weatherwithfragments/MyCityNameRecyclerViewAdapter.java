@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.weatherwithfragments.CityNameFragment.OnListFragmentInteractionListener;
-import com.example.weatherwithfragments.dummy.CityRepository.TheCity;
+import com.example.weatherwithfragments.cityrepository.CityRepository.TheCity;
 
 import java.util.List;
+
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link TheCity} and makes a call to the
@@ -27,6 +28,7 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
         mListener = listener;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -40,16 +42,14 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.mView.setOnClickListener((View v) -> {
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
                 }
             }
-        });
+        );
     }
 
     @Override
@@ -63,13 +63,14 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
          final TextView mContentView;
          TheCity mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = view.findViewById(R.id.item_number);
+            mContentView = view.findViewById(R.id.content);
         }
 
+        @NonNull
         @Override
         public String toString() {
             return super.toString() + " '" + mContentView.getText() + "'";

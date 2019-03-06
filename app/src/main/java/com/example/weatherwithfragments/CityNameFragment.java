@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.weatherwithfragments.dummy.CityRepository;
-import com.example.weatherwithfragments.dummy.CityRepository.TheCity;
+import com.example.weatherwithfragments.cityrepository.CityRepository;
+import com.example.weatherwithfragments.cityrepository.CityRepository.TheCity;
 
 /**
  * A fragment representing a list of Items.
