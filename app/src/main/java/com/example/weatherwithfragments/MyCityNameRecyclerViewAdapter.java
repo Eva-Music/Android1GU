@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.weatherwithfragments.CityNameFragment.OnListFragmentInteractionListener;
@@ -44,6 +45,17 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
 
         holder.mView.setOnClickListener((View v) -> {
                 if (null != mListener) {
+//                    if(holder.checkWind.isChecked()) {
+//
+//                    }
+
+                    if (holder.checkWind.isChecked()) {
+                        holder.mItem.setWind(true);
+                    }
+                    if (holder.checkHum.isChecked()) {
+                        holder.mItem.setHumid(true);
+                    }
+
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
@@ -62,12 +74,17 @@ public class MyCityNameRecyclerViewAdapter extends RecyclerView.Adapter<MyCityNa
          final TextView mIdView;
          final TextView mContentView;
          TheCity mItem;
+        CheckBox checkHum;
+        CheckBox checkWind;
+
 
         ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = view.findViewById(R.id.item_number);
             mContentView = view.findViewById(R.id.content);
+            checkHum = view.findViewById(R.id.checkbox_humidity);
+            checkWind = view.findViewById(R.id.checkbox_wind);
         }
 
         @NonNull

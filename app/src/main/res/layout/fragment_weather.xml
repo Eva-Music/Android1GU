@@ -15,44 +15,58 @@
         android:textSize="16sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginStart="@dimen/image_start"
+        android:layout_marginTop="@dimen/image_start"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/image_start"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:src="@drawable/thermometer"
+
+                />
+
+            <ImageView
+                android:id="@+id/hum_picture"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:src="@drawable/drop" />
+
+            <ImageView
+                android:id="@+id/wind_picture"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_marginStart="@dimen/text_margin"
+                android:src="@drawable/wind" />
+
+        </LinearLayout>
+
 
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:src="@drawable/thermometer"
-
-            />
-
-        <ImageView
-            android:id="@+id/hum_picture"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:src="@drawable/drop" />
+            android:layout_marginTop="@dimen/text_margin"
+            android:src="@drawable/sun" />
 
         <ImageView
-            android:id="@+id/wind_picture"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:src="@drawable/wind" />
+            android:layout_marginTop="@dimen/text_margin"
+            android:src="@drawable/moon" />
+
 
     </LinearLayout>
-
-
-    <ImageView
-        android:layout_width="40sp"
-        android:layout_height="40sp"
-
-        android:src="@drawable/sun" />
-
-    <ImageView
-        android:layout_width="40sp"
-        android:layout_height="40sp"
-
-        android:src="@drawable/moon" />
-
 
     <Button
         android:id="@+id/button_back"
@@ -60,13 +74,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/back" />
-
-
-    <TextView
-        android:id="@+id/text_view_counter_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
 
 
 </LinearLayout>

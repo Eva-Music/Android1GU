@@ -6,4 +6,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="second_weather">The weather in</string>
     <string name="back">back</string>
+    <string name="humidity">Air humidity</string>
+    <string name="wind">Wind speed</string>
 </resources>

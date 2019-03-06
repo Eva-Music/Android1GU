@@ -2,10 +2,15 @@ package com.example.weatherwithfragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.example.weatherwithfragments.cityrepository.CityRepository;
 
 
 /**
@@ -16,15 +21,20 @@ import android.view.ViewGroup;
 public class WeatherFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+//    private static final String ARG_PARAM1 = "param1";
+//    private static final String ARG_PARAM2 = "param2";
+//
+//    // TODO: Rename and change types of parameters
+//    private String mParam1;
+//    private String mParam2;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ImageView picHum;
+    ImageView picWind;
+    Button backButton;
 
     public WeatherFragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -38,27 +48,56 @@ public class WeatherFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static WeatherFragment newInstance(String param1, String param2) {
         WeatherFragment fragment = new WeatherFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_weather, container, false);
+        View v = inflater.inflate(R.layout.fragment_weather, container, false);
+        picHum = v.findViewById(R.id.hum_picture);
+        picWind = v.findViewById(R.id.wind_picture);
+        backButton = v.findViewById(R.id.button_back);
+
+        if (getArguments() != null) {
+            if (getArguments().getSerializable(MainActivity.SERIAL) instanceof CityRepository.TheCity) {
+                CityRepository.TheCity item = (CityRepository.TheCity) getArguments().getSerializable(MainActivity.SERIAL);
+                if (item != null) {
+                    if (item.isWind()) {
+                        picWind.setVisibility(View.VISIBLE);
+                    } else {
+                        picWind.setVisibility(View.INVISIBLE);
+                    }
+
+                    if (item.isHumid()) {
+                        picHum.setVisibility(View.VISIBLE);
+                    } else {
+                        picHum.setVisibility(View.INVISIBLE);
+                    }
+                }
+
+            }
+        }
+
+        backButton.setOnClickListener(v1 -> {
+            assert getFragmentManager() != null;
+            getFragmentManager().popBackStack();
+        });
+
+
+        return v;
     }
 
 

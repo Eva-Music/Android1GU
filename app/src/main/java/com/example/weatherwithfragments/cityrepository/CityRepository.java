@@ -2,6 +2,7 @@ package com.example.weatherwithfragments.cityrepository;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +32,7 @@ public class CityRepository {
 
             addItem(createTheCity(ITEMS.size(), "Москва" ));
             addItem(createTheCity(ITEMS.size(), "Адлер" ));
-            addItem(createTheCity(ITEMS.size(), "Южно-Курильск" ));
+        addItem(createTheCity(ITEMS.size(), "Южно-Курильск"));
             addItem(createTheCity(ITEMS.size(), "Красноярск" ));
     }
 
@@ -44,10 +45,11 @@ public class CityRepository {
         return new TheCity(String.valueOf(id), cityName);
     }
 
-    public static class TheCity {
+    public static class TheCity implements Serializable {
         public final String id;
         public final String content;
-
+        public boolean isHumid;
+        public boolean isWind;
 
         TheCity(String id, String content) {
             this.id = id;
@@ -55,12 +57,30 @@ public class CityRepository {
 
         }
 
+        public boolean isHumid() {
+            return isHumid;
+        }
+
+        public void setHumid(boolean humid) {
+            isHumid = humid;
+        }
+
+        public boolean isWind() {
+            return isWind;
+        }
+
+        public void setWind(boolean wind) {
+            isWind = wind;
+        }
+
         @NonNull
         @Override
         public String toString() {
-            return "TheCity{" +
+            return "TheCity: " +
                     "id='" + id + '\'' +
-                    ", content='" + content + '}';
+                    ", content='" + content + '\'' +
+                    ", isHumid=" + isHumid +
+                    ", isWind=" + isWind;
         }
     }
 }
