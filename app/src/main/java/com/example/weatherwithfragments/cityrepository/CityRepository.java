@@ -4,16 +4,14 @@ import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class CityRepository {
 
     public static final List<TheCity> ITEMS = new ArrayList<>();
 
-    private static final Map<String, TheCity> ITEM_MAP = new HashMap<>();
+    //private static final Map<String, TheCity> ITEM_MAP = new HashMap<>();
 
     static {
         addItem(createTheCity(ITEMS.size(), "Moscow", "12", "1", "12%", "2 м/с"));
@@ -24,7 +22,7 @@ public class CityRepository {
 
     private static void addItem(TheCity item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        //ITEM_MAP.put(item.id, item);
     }
 
     private static TheCity createTheCity(int id, String cityName, String tempDay, String tempNight, String humProc, String windSpeed) {

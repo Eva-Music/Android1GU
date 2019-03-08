@@ -14,17 +14,10 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
 
     public static final String SERIAL = "serial";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        // .setAction("Action", null).show()
-
-
-
 
         CityNameFragment cityNameFragment = new CityNameFragment();
         getSupportFragmentManager()
@@ -54,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
                             .addToBackStack(null)
                             .commit();
                 }
-
             }
         });
     }
