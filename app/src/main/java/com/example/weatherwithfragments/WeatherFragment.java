@@ -16,10 +16,17 @@ import com.example.weatherwithfragments.cityrepository.CityRepository;
 
 public class WeatherFragment extends Fragment {
 
-    ImageView picHum;
-    ImageView picWind;
-    Button backButton;
-    TextView textView;
+    private ImageView picHum;
+    private ImageView picWind;
+    private Button backButton;
+    private TextView textView;
+    private char d = 176;
+
+    private TextView dayTemp;
+    private TextView nightTemp;
+    private TextView humProcent;
+    private TextView windSpeed;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -30,14 +37,26 @@ public class WeatherFragment extends Fragment {
         backButton = v.findViewById(R.id.button_back);
         textView = v.findViewById(R.id.weather_text_view);
 
+        dayTemp = v.findViewById(R.id.tv_day_temp);
+        nightTemp = v.findViewById(R.id.tv_night_temp);
+        humProcent = v.findViewById(R.id.tv_hum);
+        windSpeed = v.findViewById(R.id.tv_wind);
+
+
         if (getArguments() != null) {
             if (getArguments().getSerializable(MainActivity.SERIAL) instanceof CityRepository.TheCity) {
                 CityRepository.TheCity item = (CityRepository.TheCity) getArguments().getSerializable(MainActivity.SERIAL);
                 if (item != null) {
 
+                    dayTemp.setText(item.tempDay);
+                    dayTemp.append(String.valueOf(d + "C"));
+                    nightTemp.setText(item.tempNight);
+                    nightTemp.append(String.valueOf(d + "C"));
+
                     textView.append(" " + item.content);
                     if (item.isWind()) {
                         picWind.setVisibility(View.VISIBLE);
+                        windSpeed.setText(item.windSpeed);
 
                     } else {
                         picWind.setVisibility(View.INVISIBLE);
@@ -45,7 +64,7 @@ public class WeatherFragment extends Fragment {
 
                     if (item.isHumid()) {
                         picHum.setVisibility(View.VISIBLE);
-
+                        humProcent.setText(item.humProc);
                     } else {
                         picHum.setVisibility(View.INVISIBLE);
                     }

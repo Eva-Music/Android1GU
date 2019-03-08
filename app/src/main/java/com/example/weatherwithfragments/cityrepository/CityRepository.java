@@ -16,10 +16,10 @@ public class CityRepository {
     private static final Map<String, TheCity> ITEM_MAP = new HashMap<>();
 
     static {
-        addItem(createTheCity(ITEMS.size(), "Moscow"));
-        addItem(createTheCity(ITEMS.size(), "Saint-Petersburg"));
-        addItem(createTheCity(ITEMS.size(), "Sochi"));
-        addItem(createTheCity(ITEMS.size(), "Samara"));
+        addItem(createTheCity(ITEMS.size(), "Moscow", "12", "1", "12%", "2 м/с"));
+        addItem(createTheCity(ITEMS.size(), "Saint-Petersburg", "5", "-2", "27%", "10 м/с"));
+        addItem(createTheCity(ITEMS.size(), "Sochi", "18", "9", "30%", "11 м/с"));
+        addItem(createTheCity(ITEMS.size(), "Samara", "15", "10", "8%", "6 м/с"));
     }
 
     private static void addItem(TheCity item) {
@@ -27,8 +27,8 @@ public class CityRepository {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static TheCity createTheCity(int id, String cityName) {
-        return new TheCity(String.valueOf(id), cityName);
+    private static TheCity createTheCity(int id, String cityName, String tempDay, String tempNight, String humProc, String windSpeed) {
+        return new TheCity(String.valueOf(id), cityName, tempDay, tempNight, humProc, windSpeed);
     }
 
     public static class TheCity implements Serializable {
@@ -37,10 +37,18 @@ public class CityRepository {
         public boolean isHumid;
         public boolean isWind;
 
-        TheCity(String id, String content) {
+        public String tempDay;
+        public String tempNight;
+        public String humProc;
+        public String windSpeed;
+
+        public TheCity(String id, String content, String tempDay, String tempNight, String humProc, String windSpeed) {
             this.id = id;
             this.content = content;
-
+            this.tempDay = tempDay;
+            this.tempNight = tempNight;
+            this.humProc = humProc;
+            this.windSpeed = windSpeed;
         }
 
         public boolean isHumid() {
