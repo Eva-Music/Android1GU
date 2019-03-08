@@ -20,12 +20,12 @@ public class CityRepository {
         addItem(createTheCity(ITEMS.size(), "Samara", "15", "10", "8%", "6 м/с"));
     }
 
-    private static void addItem(TheCity item) {
+    public static void addItem(TheCity item) {
         ITEMS.add(item);
         //ITEM_MAP.put(item.id, item);
     }
 
-    private static TheCity createTheCity(int id, String cityName, String tempDay, String tempNight, String humProc, String windSpeed) {
+    public static TheCity createTheCity(int id, String cityName, String tempDay, String tempNight, String humProc, String windSpeed) {
         return new TheCity(String.valueOf(id), cityName, tempDay, tempNight, humProc, windSpeed);
     }
 

@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         CityNameFragment cityNameFragment = new CityNameFragment();
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.city_name_fragment, cityNameFragment)
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,8 +51,12 @@ public class MainActivity extends AppCompatActivity implements CityNameFragment.
                             .addToBackStack(null)
                             .commit();
                 }
+
+
             }
         });
+
+
     }
 
     @Override
