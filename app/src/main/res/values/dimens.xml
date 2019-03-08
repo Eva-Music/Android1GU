@@ -2,4 +2,6 @@
 <resources>
     <dimen name="text_margin">24dp</dimen>
     <dimen name="image_start">46dp</dimen>
+    <dimen name="numbers_start">40dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
