@@ -4,4 +4,6 @@
     <string name="back">back</string>
     <string name="humidity">Air humidity</string>
     <string name="wind">Wind speed</string>
+    <string name="title_activity_add_city_fragment">AddCityFragment</string>
+    <string name="action_settings">Settings</string>
 </resources>
